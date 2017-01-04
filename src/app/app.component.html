@@ -1,3 +1,15 @@
-<h1>
-  {{title}}
-</h1>
+<button (click)="getRandomQuote()">Get Quote</button>
+<h1 [innerHTML]="quote.content"></h1>
+<div>
+  <h3>
+    Author: {{quote.title}}
+  </h3>
+</div>
+<div>
+  <h3>
+    Link: {{quote.link}}
+  </h3>
+</div>
+<div>
+  <h3 [innerHTML]="quote.custom_meta?.Source"></h3>
+</div>
