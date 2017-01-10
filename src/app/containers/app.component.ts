@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
 import { Http, Jsonp } from '@angular/http';
+import { Store } from '@ngrx/store';
+import { AppState, getRandomQuote } from '../reducers/index';
+import { QuoteActions } from '../actions/quote.actions';
+import { Quote } from '../models/quote';
+import { Observable } from 'rxjs/Rx';
 
 @Component({
   selector: 'quot-root',
@@ -7,18 +12,18 @@ import { Http, Jsonp } from '@angular/http';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  baseurl:string = 'http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&_jsonp=JSONP_CALLBACK'
-  quote: any = "Random string";
-  index = Math.floor(Math.random() * 1060);
-  constructor(private jsonp: Jsonp, private http: Http){ }
+  quote: any;
+  
+  constructor(
+    private jsonp: Jsonp, 
+    private store: Store<AppState>,
+    private quoteActions: QuoteActions
+  ){ 
+    this.store.dispatch(this.quoteActions.getQuote());
+    this.quote = this.store.select(getRandomQuote);
+  }
 
   getRandomQuote(){
-    this.index =  Math.floor(Math.random() * 1060);
-    this.jsonp.get(this.baseurl).subscribe(
-      response => {
-        // console.log(response['_body'][0]);
-        this.quote = response['_body'][0]
-      }
-    )
+    this.store.dispatch(this.quoteActions.getQuote());
   }
 }

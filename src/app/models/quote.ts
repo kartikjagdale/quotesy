@@ -1,5 +1,7 @@
-export interface quote {
-  title: string;
+import { Base } from './base';
+
+export class Quote extends Base {
+  author: string;
   content: string;
-  source: string
+  imageUrl: string;
 }

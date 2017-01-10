@@ -1,3 +1,7 @@
 <button (click)="getRandomQuote()">Get Quote</button>
+<ngrx-store-log-monitor toggleCommand="ctrl-h" positionCommand="ctrl-m"></ngrx-store-log-monitor>
 
-<quot-card [quote]="quote" [index]="index"></quot-card>
+<div *ngIf="(quote | async)">
+  <quot-card [quote]="(quote | async)"></quot-card>
+</div>
+

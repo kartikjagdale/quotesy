@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Quote } from '../../models/quote';
 
 @Component({
   selector: 'quot-card',
@@ -6,8 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./card.component.css']
 })
 export class CardComponent implements OnInit {
-  @Input() quote: any;
-  @Input() index: any;
+  @Input() quote: Quote;
   constructor() { }
 
   ngOnInit() {

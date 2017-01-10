@@ -1,11 +1,11 @@
-<div class="card center" [style.background]="'url(https://unsplash.it/575x515?image=' + index + '&blur)'">
+<div class="card center" [style.background]="'url(' + quote.imageUrl + ')'">
   <div class='love fa fa-heart-o'></div>
   <div>
       <div class="quote" >
         <div class="content">
           <div class="phrase" [innerHTML]="quote.content || '<p>Welcome To Quotesy</p>'">
           </div>
-          - {{ quote.title ||  'kartik' }}
+          - {{ quote.author ||  'kartik' }}
          </div>
       </div>
     </div>
