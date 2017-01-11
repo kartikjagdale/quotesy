@@ -14,7 +14,7 @@ export class QuoteEffects {
     private quoteActions: QuoteActions,
     private quoteService: QuoteService
   ){ }
-
+  
   @Effect() getQuote$: Observable<Action>  = this.actions$
     .ofType(ActionTypes.GET_QUOTE)
     .switchMap(() => this.quoteService.getRandomQuote())
