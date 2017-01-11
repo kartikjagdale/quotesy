@@ -1,6 +1,5 @@
-<ngrx-store-log-monitor toggleCommand="ctrl-h" positionCommand="ctrl-m"></ngrx-store-log-monitor>
+<ngrx-store-log-monitor *ngIf="!(environment.production)" toggleCommand="ctrl-h" positionCommand="ctrl-m"></ngrx-store-log-monitor>
 
 <div *ngIf="(quote | async)">
   <quot-card [quote]="(quote | async)" (next)="getRandomQuote()"></quot-card>
 </div>
-

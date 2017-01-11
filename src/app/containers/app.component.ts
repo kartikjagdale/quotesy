@@ -5,6 +5,7 @@ import { AppState, getRandomQuote } from '../reducers/index';
 import { QuoteActions } from '../actions/quote.actions';
 import { Quote } from '../models/quote';
 import { Observable } from 'rxjs/Rx';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'quot-root',
