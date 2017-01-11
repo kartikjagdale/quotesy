@@ -16,7 +16,7 @@ import { EffectsModule } from '@ngrx/effects';
 /**
  * OverAll Reducer for all reducers in an app.
  */
-import reducer from './reducers';
+import { reducer } from './reducers';
 
 /**
  * Effects Modules

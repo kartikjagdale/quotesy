@@ -22,7 +22,12 @@ export class AppComponent {
     this.store.dispatch(this.quoteActions.getQuote());
     this.quote = this.store.select(getRandomQuote);
   }
-
+  /**
+   * Dispatch action to get Random Quote from Quotes api
+   * and store it in Ngrx store;
+   * 
+   * @method getRandomQuote
+   */
   getRandomQuote(){
     this.store.dispatch(this.quoteActions.getQuote());
   }

@@ -9,10 +9,29 @@ export class QuoteService {
   
   constructor(private jsonp: Jsonp) { }
 
+  /**
+   * Get Random Quote from quote api
+   * 
+   * @method: getRandomQuote
+   * 
+   * @return Observable<any>
+   */
   getRandomQuote(): Observable<any> {
     return this.jsonp.get(this.baseurl);
   }
 
+
+
+  /**
+   * Parse the response recived from Quotes api
+   * and add random image url from unsplsah.it random image site
+   * 
+   * @param response
+   * 
+   * @method parseResponse
+   * 
+   * @return Quote
+   */
   parseResponse(response): Quote {
     const quoteBody = response['_body'][0]
     const index = Math.floor(Math.random() * 1060);
