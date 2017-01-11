@@ -32,4 +32,8 @@ export class AppComponent {
   getRandomQuote(){
     this.store.dispatch(this.quoteActions.getQuote());
   }
+
+  isProducionEnv(){
+    return environment.production ? true : false 
+  }
 }
